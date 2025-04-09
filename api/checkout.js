@@ -23,8 +23,8 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Invalid page count" });
   }
 
-  const pricePerPage = 75;
-  const totalAmount = pages * pricePerPage * 100;
+  const pricePerPage = 300;
+  const totalAmount = 600 + (pages * pricePerPage);
 
   try {
     const session = await stripe.checkout.sessions.create({
