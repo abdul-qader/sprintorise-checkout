@@ -23,8 +23,13 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Invalid page count" });
   }
 
-  const pricePerPage = 300;
-  const totalAmount = 600 + (pages * pricePerPage);
+  // 💰 Pricing logic
+  const basePrice = 600; // USD
+  const pricePerPage = 300; // USD
+  const totalAmount = basePrice + pages * pricePerPage; // in dollars
+
+  // Convert to cents for Stripe
+  const stripeAmount = totalAmount * 100;
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -37,7 +42,7 @@ export default async function handler(req, res) {
               name: `Website Launch Kit – ${pages} Page Website Development`,
               description: `Development of ${pages} custom pages based on your provided design. Fully responsive, SEO-friendly, fast-loading, and ready for launch.`,
             },
-            unit_amount: totalAmount,
+            unit_amount: stripeAmount, // in cents ✅
           },
           quantity: 1,
         },
@@ -46,11 +51,12 @@ export default async function handler(req, res) {
       success_url: "https://yourdomain.com/success",
       cancel_url: "https://sprintorise.com/",
 
+      // ✅ Discount (STR15)
       discounts: [
-    {
-      promotion_code: "promo_1RBtxGH5UZYsxJ7SMoPPDw5D", // Replace this in step 2 below
-    },
-  ],
+        {
+          promotion_code: "promo_1RBtxGH5UZYsxJ7SMoPPDw5D",
+        },
+      ],
     });
 
     res.status(200).json({ url: session.url });
