@@ -45,6 +45,12 @@ export default async function handler(req, res) {
       mode: "payment",
       success_url: "https://yourdomain.com/success",
       cancel_url: "https://sprintorise.com/",
+
+      discounts: [
+    {
+      promotion_code: "promo_1RBtxGH5UZYsxJ7SMoPPDw5D", // Replace this in step 2 below
+    },
+  ],
     });
 
     res.status(200).json({ url: session.url });
