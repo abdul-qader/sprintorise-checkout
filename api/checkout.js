@@ -4,7 +4,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   // ✅ CORS Headers
-  res.setHeader("Access-Control-Allow-Origin", "https://different-tests-678731.framer.app");
+  res.setHeader("Access-Control-Allow-Origin", "https://sprintorise.com");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
