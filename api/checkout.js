@@ -39,8 +39,8 @@ export default async function handler(req, res) {
           price_data: {
             currency: "usd",
             product_data: {
-              name: `Website Launch Kit – ${pages} Page Website Development`,
-              description: `Development of ${pages} custom pages based on your provided design. Fully responsive, SEO-friendly, fast-loading, and ready for launch.`,
+              name: `Website Launch Kit – ${pages} Page Website`,
+              description: `Development of ${pages} custom pages based on your provided design.`,
             },
             unit_amount: stripeAmount, // in cents ✅
           },
