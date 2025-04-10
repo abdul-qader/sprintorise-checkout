@@ -39,7 +39,7 @@ export default async function handler(req, res) {
           price_data: {
             currency: "usd",
             product_data: {
-              name: `${pages} – Page Website Launch Kit`,
+              name: `${pages}–Page Website Launch Kit`,
               description: `Development of ${pages} custom pages based on your provided design.`,
             },
             unit_amount: stripeAmount, // in cents ✅
@@ -48,7 +48,7 @@ export default async function handler(req, res) {
         },
       ],
       mode: "payment",
-      success_url: "https://yourdomain.com/success",
+      success_url: "https://sprintorise.com/",
       cancel_url: "https://sprintorise.com/",
 
       // ✅ Discount (STR15)
