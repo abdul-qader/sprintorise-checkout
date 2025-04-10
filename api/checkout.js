@@ -39,7 +39,7 @@ export default async function handler(req, res) {
           price_data: {
             currency: "usd",
             product_data: {
-              name: `Website Launch Kit – ${pages} Page Website`,
+              name: `${pages} – Page Website Launch Kit`,
               description: `Development of ${pages} custom pages based on your provided design.`,
             },
             unit_amount: stripeAmount, // in cents ✅
