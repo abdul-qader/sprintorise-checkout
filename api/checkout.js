@@ -48,7 +48,7 @@ export default async function handler(req, res) {
         },
       ],
       mode: "payment",
-      success_url: "https://sprintorise.com/",
+      success_url: "https://p0qmnqb4hkw.typeform.com/to/gm9c0E2Z",
       cancel_url: "https://sprintorise.com/",
 
       // ✅ Discount (STR15)
